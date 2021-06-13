@@ -1,0 +1,6 @@
+version => 1.0.0
+    fully functional calculator 
+version => 1.0.1
+    removable of bug when user input the range and then input the invalid numbers in array. 
+    When user input a range and then input the invalid input in array element then the program tell the user to input the value of range again and then program goes forword but when the answer is prininted out the program start from the previous range the user had specified insted of start all over again.
+    Remove the bug by making differnet function for array range and array input.
