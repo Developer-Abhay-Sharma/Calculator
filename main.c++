@@ -1,4 +1,4 @@
-// Version 1.0.1
+// Version 1.0.2
 #include <time.h> //to know execution time
 #include <iostream>
 #include <stdlib.h>
@@ -10,10 +10,12 @@ class calculation
     int result = 0;
     int long result_multi = 1;
     int result_division = 1;
+    float result_percentage = 0.0;
     int final_data_addition(int range, int value_check[]);
     int final_data_subtraction(int range, int value_check[]);
     int final_data_multiplication(int range, int value_check[]);
     int final_data_division(int range, int value_check[]);
+    float final_data_percentage(float value_input, float maximum_value);
 
 public:
     void range_check_data(int choose) //get the data and check the validation of data
@@ -34,6 +36,32 @@ public:
             cout << "\n Invalid Input\n";
             range_check_data(choose);
         }
+    }
+    void percentage_input_and_check_data(int choose)
+    {
+        int final_choice = choose;
+        float value_input;
+        float maximum_value;
+        cout<<"\n Enter the value you have got= ";
+        cin>>value_input;
+         while (cin.fail()) // deal with non-valid memory and non-useful data
+        {
+            cin.clear();               // clear input buffer to restore cin to a usable state
+            cin.ignore(INT_MAX, '\n'); // ignore last input
+            cout << "\n Invalid Input\n";
+            percentage_input_and_check_data(choose);
+        }
+        cout<<"\n Enter the total value= ";
+        cin>>maximum_value;
+        while (cin.fail()) // deal with non-valid memory and non-useful data
+        {
+            cin.clear();               // clear input buffer to restore cin to a usable state
+            cin.ignore(INT_MAX, '\n'); // ignore last input
+            cout << "\n Invalid Input\n";
+            percentage_input_and_check_data(choose);
+        }
+        final_data_percentage(value_input, maximum_value);
+        cout<<"\n The answer is= "<<result_percentage<<"%";
     }
     void array_check_data(int final_choice, int range)
     {
@@ -153,6 +181,11 @@ int calculation::final_data_division(int range, int value_check[]) //final procc
     }
     return result_division;
 }
+float calculation::final_data_percentage(float value_input, float maximum_value)
+{
+    result_percentage = (value_input / maximum_value)*100;
+    return result_percentage;
+}
 
 int main()
 {
@@ -162,7 +195,8 @@ int main()
     cout << "\n 1. Addition";
     cout << "\n 2. Subtraction";
     cout << "\n 3. Multiplication";
-    cout << "\n 4. Divide \n";
+    cout << "\n 4. Divide";
+    cout << "\n 5. Percentage \n";
     //  printf("Time taken: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
     cin >> choose;
     try //expection handling
@@ -186,6 +220,10 @@ int main()
         {
             calculation division;
             division.range_check_data(choose);
+        }else if (choose == 5)
+        {
+            calculation percentage;
+            percentage.percentage_input_and_check_data(choose);
         }
         else
             throw 505;
