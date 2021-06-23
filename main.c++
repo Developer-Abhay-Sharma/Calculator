@@ -7,14 +7,13 @@ using namespace std;
 
 class calculation
 {
-    int result = 0;
+    float result = 0.0; //float
     int long result_multi = 1;
-    int result_division = 1;
     float result_percentage = 0.0;
-    int final_data_addition(int range, int value_check[]);
-    int final_data_subtraction(int range, int value_check[]);
-    int final_data_multiplication(int range, int value_check[]);
-    int final_data_division(int range, int value_check[]);
+    float final_data_addition(int range, float value_check[]);
+    float final_data_subtraction(int range, float value_check[]);
+    float final_data_multiplication(int range, float value_check[]);
+    float final_data_division(float divident, float divisor);
     float final_data_percentage(float value_input, float maximum_value);
 
 public:
@@ -36,6 +35,31 @@ public:
             cout << "\n Invalid Input\n";
             range_check_data(choose);
         }
+    }
+    void divide_input_and_check_data(int choose)
+    {
+        float divident = 0.0;
+        float divisor = 0.0;
+        cout<<"\n Enter the value of divident= ";
+        cin>>divident;
+        while (cin.fail()) // deal with non-valid memory and non-useful data
+        {
+            cin.clear();               // clear input buffer to restore cin to a usable state
+            cin.ignore(INT_MAX, '\n'); // ignore last input
+            cout << "\n Invalid Input\n";
+           divide_input_and_check_data(choose);
+        }
+        cout<<"\n Enter the value of divisor= ";
+        cin>>divisor;
+        while (cin.fail()) // deal with non-valid memory and non-useful data
+        {
+            cin.clear();               // clear input buffer to restore cin to a usable state
+            cin.ignore(INT_MAX, '\n'); // ignore last input
+            cout << "\n Invalid Input\n";
+            divide_input_and_check_data(choose);
+        }
+        final_data_division(divident, divisor);
+        cout << "\n The answer is=" << result << endl;
     }
     void percentage_input_and_check_data(int choose)
     {
@@ -65,8 +89,8 @@ public:
     }
     void array_check_data(int final_choice, int range)
     {
-        int i;
-        int value_check[range];
+        int i; 
+        float value_check[range]; //float
         for (i = 0; i < range; i++)
         {
             cout << "\n Enter your " << i + 1 << " number= ";
@@ -90,19 +114,19 @@ public:
             final_data_subtraction(range, value_check);
             cout << "\n The answer is=" << result << endl;
         }
-        else if (final_choice == 3)
+        else
         {
             final_data_multiplication(range, value_check);
             cout << "\n The answer is=" << result_multi << endl;
         }
-        else
+        /*else
         {
             final_data_division(range, value_check);
             cout << "\n The answer is=" << result_division << endl;
-        }
+        }*/
     }
 };
-int calculation::final_data_addition(int range, int value_check[]) //final proccessing of data
+float calculation::final_data_addition(int range, float value_check[]) //final proccessing of data
 {
     for (int i = 0; i < range; i++)
     {
@@ -110,7 +134,7 @@ int calculation::final_data_addition(int range, int value_check[]) //final procc
     }
     return result;
 }
-int calculation::final_data_subtraction(int range, int value_check[]) //final proccessing of data
+float calculation::final_data_subtraction(int range, float value_check[]) //final proccessing of data
 {
     for (int i = 0; i < range; i++)
     {
@@ -123,7 +147,7 @@ int calculation::final_data_subtraction(int range, int value_check[]) //final pr
     }
     return result;
 }
-int calculation::final_data_multiplication(int range, int value_check[]) //final proccessing of data
+float calculation::final_data_multiplication(int range, float value_check[]) //final proccessing of data
 {
     for (int i = 0; i < range; i++)
     {
@@ -131,36 +155,22 @@ int calculation::final_data_multiplication(int range, int value_check[]) //final
     }
     return result_multi;
 }
-int calculation::final_data_division(int range, int value_check[]) //final proccessing of data
+float calculation::final_data_division(float divident, float divisor) //final proccessing of data
 {
+    float quotient = 0.0;
     int division_option;
     cout << "\n Choose what you want";
     cout << "\n 1.Reminder";
     cout << "\n 2.Quotient \n";
     cin >> division_option;
+    quotient = divident / divisor;
     if (division_option == 1)
     {
-        for (int i = 0; i < range; i++)
-        {
-            if (i == 0)
-            {
-                result_division = value_check[i]; //take the first value of array in result_division
-            }
-            else
-                result_division = result_division % value_check[i];
-        }
+       result = divident - (divisor*quotient);
     }
     else if (division_option == 2)
     {
-        for (int i = 0; i < range; i++)
-        {
-            if (i == 0)
-            {
-                result_division = value_check[i];
-            }
-            else
-                result_division = result_division / value_check[i];
-        }
+        result = quotient;
     }
     else
         try //expection handling
@@ -170,16 +180,16 @@ int calculation::final_data_division(int range, int value_check[]) //final procc
                 cin.clear();               // clear input buffer to restore cin to a usable state
                 cin.ignore(INT_MAX, '\n'); // ignore last input
                 cout << "Invalid Input\n";
-                final_data_division(range, value_check);
+                final_data_division(divident, divisor);
             }
             throw 505;
         }
     catch (...) //deal with valid memory and non useful data
     {
         cout << "\n Invalid Input\n";
-        final_data_division(range, value_check);
+        final_data_division(divident, divisor);
     }
-    return result_division;
+    return result;
 }
 float calculation::final_data_percentage(float value_input, float maximum_value)
 {
@@ -219,7 +229,7 @@ int main()
         else if (choose == 4)
         {
             calculation division;
-            division.range_check_data(choose);
+            division.divide_input_and_check_data(choose);
         }else if (choose == 5)
         {
             calculation percentage;

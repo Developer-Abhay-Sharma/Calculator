@@ -6,3 +6,5 @@ version => 1.0.1
     Remove the bug by making differnet function for array range and array input.
 version => 1.0.2
     added support for percentage calculation
+version => 1.0.3
+    added support for float type values in calculation
