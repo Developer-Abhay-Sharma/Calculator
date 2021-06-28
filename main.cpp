@@ -1,4 +1,4 @@
-// Version 1.0.3
+// Version 1.0.4
 #include <time.h> //to know execution time
 #include <iostream>
 #include <stdlib.h>
@@ -394,10 +394,17 @@ public:
             }
             else if (k == 0)
             {
-                int day_year_diff = solid_year_diff(first_date, second_date);
-                int day_month_diff = solid_month_diff(first_date, second_date);
-                final_date[k] = day_year_diff;
-                cout << "\n Days Left= " << final_date[k];
+                int leap_days = 0;
+                final_date[k] = final_date[k+1] * 30.417;
+                for (int i = first_date[k+2]; i <=second_date[k+2]; i++)
+                {
+                    if (i%4==0)
+                    {
+                        leap_days++;
+                    }
+                }
+                final_date[k] =final_date[k] + leap_days; 
+                cout<<"\n Days Left= "<<final_date[k];
             }
         }
     }
