@@ -129,141 +129,139 @@ public:
 
 class date_and_time
 {
-    int leap_year(int day_to_month_validation)      //input value of day based on month and leap year
+    int leap_year(int day_to_month_validation) //input value of day based on month and leap year
     {
         int day;
         if (day_to_month_validation == 2)
         {
-            cout<<"\n Enter the value of days(1-29)= ";
-            cin>>day;
+            cout << "\n Enter the value of days(1-29)= ";
+            cin >> day;
             while (cin.fail()) // deal with non-valid memory and non-useful data
-             {
-                 cin.clear();               // clear input buffer to restore cin to a usable state
-                 cin.ignore(INT_MAX, '\n'); // ignore last input
-                 cout << "\n Invalid Input\n";
-                 leap_year(day_to_month_validation);
-             }
-            if (day >=1 && day <=29)
+            {
+                cin.clear();               // clear input buffer to restore cin to a usable state
+                cin.ignore(INT_MAX, '\n'); // ignore last input
+                cout << "\n Invalid Input\n";
+                leap_year(day_to_month_validation);
+            }
+            if (day >= 1 && day <= 29)
             {
                 return day;
             }
             else
             {
-                cout<<"\n Invalid Date Value";
+                cout << "\n Invalid Date Value";
                 leap_year(day_to_month_validation);
             }
         }
         else if (day_to_month_validation == 1 || day_to_month_validation == 3 || day_to_month_validation == 5 || day_to_month_validation == 7 || day_to_month_validation == 8 || day_to_month_validation == 10 || day_to_month_validation == 12)
         {
-            cout<<"\n Enter the value of days(1-31)= ";
-            cin>>day;
+            cout << "\n Enter the value of days(1-31)= ";
+            cin >> day;
             while (cin.fail()) // deal with non-valid memory and non-useful data
-             {
-                 cin.clear();               // clear input buffer to restore cin to a usable state
-                 cin.ignore(INT_MAX, '\n'); // ignore last input
-                 cout << "\n Invalid Input\n";
-                 leap_year(day_to_month_validation);
-             }
-            if (day >=1 && day <=31)
+            {
+                cin.clear();               // clear input buffer to restore cin to a usable state
+                cin.ignore(INT_MAX, '\n'); // ignore last input
+                cout << "\n Invalid Input\n";
+                leap_year(day_to_month_validation);
+            }
+            if (day >= 1 && day <= 31)
             {
                 return day;
             }
             else
             {
-                cout<<"\n Invalid Date Value";
+                cout << "\n Invalid Date Value";
                 leap_year(day_to_month_validation);
             }
         }
         else
         {
-            cout<<"\n Enter the value of days(1-30)= ";
-            cin>>day;
+            cout << "\n Enter the value of days(1-30)= ";
+            cin >> day;
             while (cin.fail()) // deal with non-valid memory and non-useful data
-             {
-                 cin.clear();               // clear input buffer to restore cin to a usable state
-                 cin.ignore(INT_MAX, '\n'); // ignore last input
-                 cout << "\n Invalid Input\n";
-                 leap_year(day_to_month_validation);
-             }
-            if (day >=1 && day <=30)
+            {
+                cin.clear();               // clear input buffer to restore cin to a usable state
+                cin.ignore(INT_MAX, '\n'); // ignore last input
+                cout << "\n Invalid Input\n";
+                leap_year(day_to_month_validation);
+            }
+            if (day >= 1 && day <= 30)
             {
                 return day;
             }
             else
             {
-                cout<<"\n Invalid Date Value";
+                cout << "\n Invalid Date Value";
                 leap_year(day_to_month_validation);
             }
         }
-        
     }
-     int not_leap_year(int day_to_month_validation)
+    int not_leap_year(int day_to_month_validation)
     {
         int day;
         if (day_to_month_validation == 2)
         {
-            cout<<"\n Enter the value of days(1-28)= ";
-            cin>>day;
+            cout << "\n Enter the value of days(1-28)= ";
+            cin >> day;
             while (cin.fail()) // deal with non-valid memory and non-useful data
-             {
-                 cin.clear();               // clear input buffer to restore cin to a usable state
-                 cin.ignore(INT_MAX, '\n'); // ignore last input
-                 cout << "\n Invalid Input\n";
-                 not_leap_year(day_to_month_validation);
-             }
-            if (day >=1 && day <=28)
+            {
+                cin.clear();               // clear input buffer to restore cin to a usable state
+                cin.ignore(INT_MAX, '\n'); // ignore last input
+                cout << "\n Invalid Input\n";
+                not_leap_year(day_to_month_validation);
+            }
+            if (day >= 1 && day <= 28)
             {
                 return day;
             }
             else
             {
-                cout<<"\n Invalid Date Value";
+                cout << "\n Invalid Date Value";
                 leap_year(day_to_month_validation);
             }
         }
         else if (day_to_month_validation == 1 || day_to_month_validation == 3 || day_to_month_validation == 5 || day_to_month_validation == 7 || day_to_month_validation == 8 || day_to_month_validation == 10 || day_to_month_validation == 12)
         {
-            cout<<"\n Enter the value of days(1-31)= ";
-            cin>>day;
+            cout << "\n Enter the value of days(1-31)= ";
+            cin >> day;
             while (cin.fail()) // deal with non-valid memory and non-useful data
-             {
-                 cin.clear();               // clear input buffer to restore cin to a usable state
-                 cin.ignore(INT_MAX, '\n'); // ignore last input
-                 cout << "\n Invalid Input\n";
-                 not_leap_year(day_to_month_validation);
-             }
-            if (day >=1 && day <=31)
+            {
+                cin.clear();               // clear input buffer to restore cin to a usable state
+                cin.ignore(INT_MAX, '\n'); // ignore last input
+                cout << "\n Invalid Input\n";
+                not_leap_year(day_to_month_validation);
+            }
+            if (day >= 1 && day <= 31)
             {
                 return day;
             }
             else
             {
-                cout<<"\n Invalid Date Value";
+                cout << "\n Invalid Date Value";
                 leap_year(day_to_month_validation);
             }
         }
         else
         {
-            cout<<"\n Enter the value of days(1-30)= ";
-            cin>>day;
+            cout << "\n Enter the value of days(1-30)= ";
+            cin >> day;
             while (cin.fail()) // deal with non-valid memory and non-useful data
-             {
-                 cin.clear();               // clear input buffer to restore cin to a usable state
-                 cin.ignore(INT_MAX, '\n'); // ignore last input
-                 cout << "\n Invalid Input\n";
-                 not_leap_year(day_to_month_validation);
-             }
-            if (day >=1 && day <=30)
+            {
+                cin.clear();               // clear input buffer to restore cin to a usable state
+                cin.ignore(INT_MAX, '\n'); // ignore last input
+                cout << "\n Invalid Input\n";
+                not_leap_year(day_to_month_validation);
+            }
+            if (day >= 1 && day <= 30)
             {
                 return day;
             }
             else
             {
-                cout<<"\n Invalid Date Value";
+                cout << "\n Invalid Date Value";
                 leap_year(day_to_month_validation);
             }
         }
-        
     }
     int day_input_and_check(int year_entered, int month_entered)
     {
@@ -273,15 +271,15 @@ class date_and_time
             if (year_entered % 100 == 0)
             {
                 if (year_entered % 400 == 0)
-                    return leap_year(day_to_month_validation);     //cout << year_entered << " is a leap year."; 
+                    return leap_year(day_to_month_validation); //cout << year_entered << " is a leap year.";
                 else
                     return not_leap_year(day_to_month_validation); //cout << year_entered << " is not a leap year.";
             }
             else
-                return leap_year(day_to_month_validation);        //cout << year_entered << " is a leap year.";
+                return leap_year(day_to_month_validation); //cout << year_entered << " is a leap year.";
         }
         else
-            return not_leap_year(day_to_month_validation);         //cout << year_entered << " is not a leap year.";
+            return not_leap_year(day_to_month_validation); //cout << year_entered << " is not a leap year.";
     }
     int month_input_and_check()
     {
@@ -327,7 +325,7 @@ class date_and_time
             year_input_and_check();
         }
     }
-
+    
 public:
     void date_difference(int choose)
     {
@@ -396,8 +394,9 @@ public:
             }
             else if (k == 0)
             {
-                int day_diff = (final_date[k + 1] * 30) - 1;
-                final_date[k] = day_diff + (first_date[k] + second_date[k]);
+                int day_year_diff = solid_year_diff(first_date, second_date);
+                int day_month_diff = solid_month_diff(first_date, second_date);
+                final_date[k] = day_year_diff;
                 cout << "\n Days Left= " << final_date[k];
             }
         }
